@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Bookstore</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        .book-info {
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .book-info strong {
+            font-weight: bold;
+        }
+
+        .task-methods {
+            margin-top: 10px;
+        }
+
+        .task-methods button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .task-methods button:not(:last-child) {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Online Bookstore</h1>
+
+    <h2>EBook</h2>
+    <div class="book-info"><img src="Arowana.jpg">
+        <p><strong>Title:</strong> Arowana: The Complete Owner's Guide for the Most Expensive Fish in the World</p>
+        <p><strong>Author:</strong> Fyle Faber</p>
+        <p><strong>Price:</strong> RM9.99</p>
+        <p><strong>Quantity:</strong> 10</p>
+        <p><strong>File Format:</strong> .pdf</p>
+    </div>
+    <div class="task-methods">
+        <button onclick="openEBook()">Open Book</button>
+        <button onclick="downloadEBook()">Download Book</button>
+        <button onclick="validateEBookFormat()">Validate Format</button>
+    </div>
+
+    <h2>PhysicalBook</h2>
+    <div class="book-info"><img src="tropical.jpg">
+        <p><strong>Title:</strong> What Freshwater Fish?</p>
+        <p><strong>Author:</strong> A Team of Fishkeeping Experts</p>
+        <p><strong>Price:</strong> RM14.99</p>
+        <p><strong>Quantity:</strong> 5</p>
+        <p><strong>Weight:</strong> 800g</p>
+    </div>
+    <div class="task-methods">
+        <button onclick="calculateShippingCost()">Calculate Shipping Cost</button>
+        <button onclick="convertWeightToPounds()">Convert Weight to Pounds</button>
+    </div>
+
+    <script>
+        function openEBook() {
+            alert("The book is opened. You may start reading.");
+        }
+
+        function downloadEBook() {
+            alert("The book has begun downloading.");
+        }
+
+        function validateEBookFormat() {
+            var fileFormat = ".pdf";
+            var validFormats = [".pdf", ".epub"];
+
+            if (validFormats.includes(fileFormat)) {
+                alert("File format is valid.");
+            } else {
+                alert("File format is invalid.");
+            }
+        }
+
+        function calculateShippingCost() {
+            var weight = 800;
+            var initialWeight = 500;
+            var extraChargeWeight = 250;
+            var baseShippingCost = 4.50;
+            var extraCharge = 1.00;
+
+            var additionalWeight = weight - initialWeight;
+            var additionalCharges = Math.ceil(additionalWeight / extraChargeWeight);
+            var shippingCost = baseShippingCost + additionalCharges * extraCharge;
+
+            alert("Shipping Cost: RM" + shippingCost.toFixed(2));
+        }
+
+        function convertWeightToPounds() {
+            var weight = 800;
+            var pounds = weight * 0.00220462;
+
+            alert("Weight in Pounds: " + pounds.toFixed(4) + " pounds");
+        }
+    </script>
+</body>
+</html>
